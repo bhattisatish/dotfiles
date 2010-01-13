@@ -1,0 +1,16 @@
+[ui]
+merge = changes
+
+[merge-tools]
+kdiff3.args = $base $local $other -o $output
+
+[extensions]
+hgk =
+extdiff =
+
+[hgk]
+path=/Users/mal4ik/bin/hgk
+
+[extdiff]
+cmd.chdiff =
+opts.chdiff = --wait
