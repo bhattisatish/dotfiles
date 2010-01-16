@@ -3,8 +3,8 @@
 #export CDPATH='~/sites'
 
 # Tab bash_completion magic for OSX
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
+if [ -f /etc/bash_completion ]; then
+  source /etc/bash_completion
 fi
 
 # Global

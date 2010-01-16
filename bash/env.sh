@@ -23,10 +23,9 @@ export PGDATA=/usr/local/pgsql/bin
 # Virtual Env
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
-source /Users/mal4ik/development/python/virtualenvwrapper/virtualenvwrapper_bashrc
-
-# Google Chrome
-export PATH=/Users/mal4ik/development/google/depot_tools:"$PATH"
+if [ -f ~/development/python/virtualenvwrapper/virtualenvwrapper_bashrc ]; then
+source ~/development/python/virtualenvwrapper/virtualenvwrapper_bashrc
+fi
 
 #Perforce
 export P4CONFIG=.p4config
