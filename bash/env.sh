@@ -9,7 +9,7 @@ fi
 export PATH=$PATH:~/bin
 
 #default text editor
-export editor="mate -w"
+export editor="emacs"
 
 # GIT
 if [ -f ~/.git-completion.bash ]; then
@@ -29,6 +29,12 @@ fi
 
 #Perforce
 export P4CONFIG=.p4config
+
+# History
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+# Don't store duplicate adjacent items in the history
+HISTCONTROL=ignoreboth
 
 # Setting PATH for Current Python
 export PATH=/usr/local/bin:"$PATH"

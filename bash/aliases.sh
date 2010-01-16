@@ -11,6 +11,7 @@ fi
 alias ..='cd ..'        # Go up one directory
 alias ...='cd ../..'    # Go up two directories
 alias ....='cd ../../..'    # Go up three directories
+alias -="cd -"       #go to previous dir
 alias c='clear;echo "Currently logged in on $(tty), as $(whoami) in directory $(pwd)."' # shortcut to clear your terminal
 alias cdd='cd -'        # Go to last used directory
 alias df='df -h'        # Disk free, in gigabytes, not bytes
@@ -18,15 +19,25 @@ alias du='du -h -c'     # Calculate total disk usage for a folder
 alias grep='grep --color=auto' # Always highlight grep search term
 alias h='history'       # shortcut for history
 alias hc="history | awk '{a[$2]++}END{for (i in a){print a [i] \" \" i}}' | sort -rn | head" # show most commonly used command
-alias l='ls -hali' # l for list style, a for all including hidden, h for human readable file sizes, i for inode to determine hardlinks
-alias la='ls -AF'       # Compact view, show hidden
-alias ll='ls -lFh'      # Long view, no hidden
-alias ls='ls -GFp'      # Compact view, show colors
+alias l='ls -hali --color=auto' # l for list style, a for all including hidden, h for human readable file sizes, i for inode to determine hardlinks
+alias la='ls -AF --color=auto'       # Compact view, show hidden
+alias ll='ls -lFh --color=auto'      # Long view, no hidden
+alias ls='ls -GFp --color=auto'      # Compact view, show colors
 alias ping='ping -c 5'  # Pings with 5 packets, not unlimited
 function take {
     mkdir $1
     cd $1
 }
+alias cal='cal -3' #show 3 months by default
+alias units='units -t' #terse mode
+alias diff='LC_ALL=C TZ=GMT0 diff -Naur' #normalise diffs for distribution
+alias lynx='lynx -force_html -width=$COLUMNS' #best settings for viewing HTML
+
+# I hate noise
+set bell-style visible
+
+# Tell less not to beep and also display colours
+export LESS="-QR"
 
 # Editing
 alias ea='mate ~/bin/dotfiles/bash/aliases.sh &' # because i edit my bash_profile a lot with new things
@@ -35,6 +46,12 @@ alias reload='source ~/.bash_profile' # same as previous, after editing you have
 # Processes
 alias tm='top -o vsize' #memory
 alias tu='top -o cpu' #cpu
+
+# Bash
+# GREP_COLOR=bright yellow on black bg.
+# use GREP_COLOR=7 to highlight whitespace on black terminals
+# LANG=C for speed. See also: http://www.pixelbeat.org/scripts/findrepo
+alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
 
 # Python
 alias ip='ipython'

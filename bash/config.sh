@@ -1,5 +1,9 @@
+# Django admin.py color theme
+export DJANGO_COLORS='dark'
+
 # Better looking ls output
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
+export CLICOLOR='1'
 
 # Prompt Colors
 BLACK='\[\e[0;30m\]'
