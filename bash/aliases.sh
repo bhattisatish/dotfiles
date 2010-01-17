@@ -11,7 +11,7 @@ fi
 alias ..='cd ..'        # Go up one directory
 alias ...='cd ../..'    # Go up two directories
 alias ....='cd ../../..'    # Go up three directories
-alias -="cd -"       #go to previous dir
+#alias -='cd -'       #go to previous dir
 alias c='clear;echo "Currently logged in on $(tty), as $(whoami) in directory $(pwd)."' # shortcut to clear your terminal
 alias cdd='cd -'        # Go to last used directory
 alias df='df -h'        # Disk free, in gigabytes, not bytes
