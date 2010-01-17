@@ -7,7 +7,8 @@ if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
-if [ "$TERM" != "dumb" ]; then
+unamestr=`uname`
+if [ "$unamestr" != "Linux" ]; then
   export LS_OPTIONS='--color=auto'
   eval `dircolors ./dircolors`
 fi
