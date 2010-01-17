@@ -8,7 +8,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 unamestr=`uname`
-if [ "$unamestr" != "Linux" ]; then
+if [ "$unamestr" == "Linux" ]; then
   export LS_OPTIONS='--color=auto'
   eval `dircolors ./dircolors`
 fi
