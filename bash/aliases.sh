@@ -7,6 +7,12 @@ if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
+if [ "$TERM" != "dumb" ]; then
+  export LS_OPTIONS='--color=auto'
+  eval `dircolors ./dircolors`
+fi
+
+
 # Global
 alias ..='cd ..'        # Go up one directory
 alias ...='cd ../..'    # Go up two directories
@@ -19,10 +25,10 @@ alias du='du -h -c'     # Calculate total disk usage for a folder
 alias grep='grep --color=auto' # Always highlight grep search term
 alias h='history'       # shortcut for history
 alias hc="history | awk '{a[$2]++}END{for (i in a){print a [i] \" \" i}}' | sort -rn | head" # show most commonly used command
-alias l='ls -hali --color=auto' # l for list style, a for all including hidden, h for human readable file sizes, i for inode to determine hardlinks
-alias la='ls -AF --color=auto'       # Compact view, show hidden
-alias ll='ls -lFh --color=auto'      # Long view, no hidden
-alias ls='ls -GFp --color=auto'      # Compact view, show colors
+alias l='ls -hali $LS_OPTIONS' # l for list style, a for all including hidden, h for human readable file sizes, i for inode to determine hardlinks
+alias la='ls -AF $LS_OPTIONS'       # Compact view, show hidden
+alias ll='ls -lFh $LS_OPTIONS'      # Long view, no hidden
+alias ls='ls -GFp $LS_OPTIONS'      # Compact view, show colors
 alias ping='ping -c 5'  # Pings with 5 packets, not unlimited
 function take {
     mkdir $1
