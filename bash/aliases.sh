@@ -7,10 +7,9 @@ if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
-unamestr=`uname`
-if [ "$unamestr" == "Linux" ]; then
+if [ `uname` == "Linux" ]; then
   export LS_OPTIONS='--color=auto'
-  eval `dircolors ./dircolors`
+  eval `dircolors ~/bin/dotfiles/bash/dircolors`
 fi
 
 
@@ -158,12 +157,13 @@ alias hgp='hg push'
 alias hgv='hg view'
 
 # OSX
-alias hidehidden='defaults write com.apple.finder AppleShowAllFiles False; killall Finder'
-alias killdash='defaults write com.apple.dashboard mcx-disabled -boolean YES; killall Dock;'
-alias showhidden='defaults write com.apple.finder AppleShowAllFiles True; killall Finder'
-alias startdash='defaults write com.apple.dashboard mcx-disabled -boolean NO; killall Dock;'
-alias o='open ."'
-function startup() {
+if [ `uname` == "Darwin" ]; then
+  alias hidehidden='defaults write com.apple.finder AppleShowAllFiles False; killall Finder'
+  alias killdash='defaults write com.apple.dashboard mcx-disabled -boolean YES; killall Dock;'
+  alias showhidden='defaults write com.apple.finder AppleShowAllFiles True; killall Finder'
+  alias startdash='defaults write com.apple.dashboard mcx-disabled -boolean NO; killall Dock;'
+  alias o='open ."'
+  function startup() {
     open -a "Adium.app"
     open -a "Skype.app"
     open -a "Tweetie.app"
@@ -177,6 +177,22 @@ function startup() {
     open -a "SelfControl.app"
     open -a "Transmission.app"
     open -a "Spirited Away.app"
-}
+  }
+elif [ `uname` == "Linux" ]; then
+  alias o='xdg-open '
+  function startup() {
+    pidgin
+    skype
+    emacs
+    prism-google-mail
+    prism-google-reader
+    prism-google-calendar
+    checkgmail
+    chromium
+    transmission
+    nautilus
+    quod-libet
+  }
+fi
 # Finder
 #alias o='open . &'
